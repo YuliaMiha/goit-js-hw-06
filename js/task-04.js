@@ -5,21 +5,20 @@
 //3. Усі елементи галереї повинні додаватися в DOM за одну операцію додавання.
 
 
-const galleryEl = document.querySelector(".gallery");
+const buttonDecrement = document.querySelector('button[data-action = decrement]');
+const buttonIncrement = document.querySelector('button[data-action = increment]');
 
-galleryEl.style.listStyle =  "none";
-galleryEl.style.display = "flex";
-galleryEl.style.flexWrap = "wrap";
-galleryEl.style.gap = "10px";
+let value = Number(document.querySelector('#value').textContent);
+let spanValue = document.querySelector('#value')
 
-const imageItem = images.map(({ url, alt }) => {
-  return `
-  <li class="gallery__item" style ="display: flex; flex-basis: calc(33.333% - 20px); padding-right: 10px;">
-    <img src="${url}" alt="${alt}" class="item__img" style ="  display: block; object-fit: cover;
-  max-width: 100%; height: auto;"/>
-  </li>
-  `;
-}).join("");
-console.log(imageItem);
+buttonIncrement.addEventListener('click', clickToAddOne);
+function clickToAddOne() {
+    value += 1;
+    spanValue.textContent = value;
+}
 
-galleryEl.insertAdjacentHTML('beforeend', imageItem);
+buttonDecrement.addEventListener('click', clickToRemoteOne);
+function clickToRemoteOne() {
+    value -= 1;
+    spanValue.textContent = value;
+}
