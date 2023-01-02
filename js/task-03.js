@@ -22,9 +22,9 @@ const images = [
 const galleryEl = document.querySelector(".gallery");
 
 galleryEl.style.listStyle =  "none";
-  galleryEl.style.display = "flex";
- galleryEl.style.flexWrap = "wrap";
-  galleryEl.style.gap = "10px";
+galleryEl.style.display = "flex";
+galleryEl.style.flexWrap = "wrap";
+galleryEl.style.gap = "10px";
 
 const imageItem = images.map(({ url, alt }) => {
   return `
